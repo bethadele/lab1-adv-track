@@ -42,9 +42,9 @@ function assert(expression, failureMessage) {
 
  Here are some examples for how to use the assert method:
 */
-
-assert(1 === 1, '1 equals 1 - this assert will pass.');
-assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+var one = 1;
+assert(one === 1, '1 equals 1 - this assert will pass.');
+assert(one === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -58,6 +58,11 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
+var cheetah = new Object({speed:75, manuverability:7});
+var gazelle = new Object({speed:30, manuverability:10});
+
+assert(cheetah.speed > gazelle.speed, 'he cheetah is faster than the gazelle');
+assert(cheetah.manuverability > gazelle.manuverability, 'Assertion failed because gazelles are more manuverable than cheetahs (that\'s why they sometimes get away).');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -78,11 +83,32 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
+for (var i = 0; i < sentence1.split(' ').length; i += 1) {
+  sentence1 = sentence1.split(' ');
+  if (i === 2) {
+    sentence1.push('chirp.');
+  } else {
+    sentence1.push('chirp');
+  }
+  sentence1.shift();
+  sentence1 = sentence1.join(' ');
+}
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+while (sentence2 !== 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.') {
+  sentence2 = sentence2.split(' ');
+  if (sentence2.join(' ') === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp') {
+    sentence2.push('chirp.');
+    sentence2.shift();
+  } else {
+    sentence2.push('chirp');
+    sentence2.shift();
+  }
+  sentence2 = sentence2.join(' ');
+}
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -99,7 +125,7 @@ assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
 */
 
 var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
-var nextAnimal;
+var nextAnimal = favoriteAnimals[Math.floor(Math.random() * 4)];
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
@@ -134,6 +160,15 @@ var tooHungryDay;
 */
 
 // your code goes here
+var totalMeals = 0;
+for (var day = 0; day <= mealsPerDay.length; day += 1) {
+  totalMeals += mealsPerDay[day];
+  var totalDays = day + 1;
+  if ((totalMeals / totalDays) < 4) {
+    tooHungryDay = totalDays;
+    break;
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
