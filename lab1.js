@@ -43,8 +43,10 @@ function assert(expression, failureMessage) {
  Here are some examples for how to use the assert method:
 */
 
+/*
 assert(1 === 1, '1 equals 1 - this assert will pass.');
 assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+*/
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -57,7 +59,11 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  it failed.
 */
 
-//your code goes here
+var snakeCheck1 = 'cobras';
+var snakeCheck2 = 'vipers';
+
+assert(snakeCheck1 === 'cobras', 'comparing the same string, so this is equivalent');
+assert(snakeCheck2 === 'pythons', 'vipers and pythons are different strings - as well as different types of snakes - so this will fail');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -77,12 +83,33 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // TODO: part #1: use a for loop to replace the words in sentence 1 with
 // 'chirp' (10 points)
 
-// your code goes here
+// puts words of sentence into an array
+var sentence1Array = sentence1.split(' ');
+// assigns sentence1 as a period so we can build the chirps in front
+var sentence1 = '.';
+
+// for loop to add chirps to sentence1, # of iterations is array.length
+for (var j = 0; j < sentence1Array.length; j++) {
+  sentence1 = ' chirp' + sentence1;
+}
+
+var sentence1 = sentence1.slice(1); // takes first space off sentence
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
-// your code goes here
+// puts words of sentence into an array
+var sentence2Array = sentence2.split(' ');
+// assigns sentence1 as a period so we can build the chirps in front
+var sentence2 = '.';
+var k = 0;
+
+// while loop to add chirps to sentence1, # of iterations is array.length
+while (k < sentence2Array.length) {
+  sentence2 = ' chirp' + sentence2;
+  k++;
+}
+var sentence2 = sentence2.slice(1);  // takes first space off sentence
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -104,7 +131,11 @@ var nextAnimal;
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
-// your code goes here
+// generates a random number between 1 - 4
+var randomAnimalIndex = Math.floor(Math.random() * 4 + 1);
+// assigns nextAnimals with an element from favoriteAnimals array using
+// randomly generated number as the index of the element
+var nextAnimal = favoriteAnimals[randomAnimalIndex];
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -133,7 +164,22 @@ var tooHungryDay;
  meals)
 */
 
-// your code goes here
+// variables to collect the total meals eaten in a week and the average
+// meals eaten each day
+var avgMealsPerDay = 0;
+var weeklyMealsEaten = 0;
+
+// for loop to average the daily meals
+for (var i = 0; i < mealsPerDay.length; i++) {
+  weeklyMealsEaten = weeklyMealsEaten + mealsPerDay[i];
+  avgMealsPerDay = weeklyMealsEaten / (i + 1);
+  // if statement to drop out of four loop when avg meals drops below 4/day
+  if (avgMealsPerDay < 4) {
+    // tooHungryDay is the day the average meals drops below 4
+    var tooHungryDay = i + 1;
+    i = mealsPerDay.length;
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
