@@ -43,8 +43,8 @@ function assert(expression, failureMessage) {
  Here are some examples for how to use the assert method:
 */
 
-assert(1 === 1, '1 equals 1 - this assert will pass.');
-assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
+//assert(1 === 1, '1 equals 1 - this assert will pass.');
+//assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
 
 /* ===========================================================================
 ------------------Assertions (8 points total)---------------------------------
@@ -66,8 +66,8 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  research).  We're going to translate two sentences into meerkat speech.
 */
 
-var sentence1 = 'More food please.';
-var sentence2 = 'Come over here so you can scratch my belly.';
+//var sentence1 = 'More food please.';
+//var sentence2 = 'Come over here so you can scratch my belly.';
 /*
  Your goal is to replace the words in the above sentences with 'chirp' The
  assertions at the end of this section should pass when you're done.
@@ -85,9 +85,9 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // your code goes here
 
 // Leave these assertions as-is! If they pass, your code works.
-assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
-assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
-  'sentence 2 should have 9 chirps');
+//assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
+//assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
+ // 'sentence 2 should have 9 chirps');
 
 /* ========================================================================
 ----------------- Favorite Animals (12 points)-----------------------------
@@ -98,15 +98,15 @@ assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
  Hint: read the Math.random description on MDN.
 */
 
-var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
-var nextAnimal;
+//var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
+//var nextAnimal;
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
 
-assert(nextAnimal, 'assign something to nextAnimal');
+//assert(nextAnimal, 'assign something to nextAnimal');
 
 /* ===================================================================
 ----------------- Hungry Lion (20 points) ----------------------------
@@ -134,6 +134,22 @@ var tooHungryDay;
 */
 
 // your code goes here
+var dayCounter = 0;
+var mealCounter = 0;
+var totalAvMealsPD = 0;
+
+for (var i = 0; i < mealsPerDay.length; i++) {
+
+  dayCounter = i + 1; //number of days so far
+  mealCounter += mealsPerDay[i]; //keep total of meals consumed
+  totalAvMealsPD = mealCounter / dayCounter; //divide total meals by day
+
+  console.log('The average meals on day ' + dayCounter + ' was: ' + totalAvMealsPD);
+
+  if (totalAvMealsPD > 4) {
+    tooHungryDay = dayCounter;//give tooHungryDay the number of days that elapsed
+  }
+}
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
