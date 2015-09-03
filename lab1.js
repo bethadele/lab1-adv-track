@@ -80,7 +80,7 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 
 sentence1 = sentence1.split(' ');
 
-for (var x = 0; x < 3; x++) {
+for (var x = 0; x < sentence1.length; x++) {
   sentence1[x] = 'chirp';
 }
 
@@ -93,7 +93,7 @@ sentence1 = (sentence1 + '.');
 var chirpCount = 0;
 sentence2 = sentence2.split(' ');
 
-while (chirpCount < 9) {
+while (chirpCount < sentence2.length) {
   sentence2[chirpCount] = 'chirp';
   chirpCount += 1;
 }
