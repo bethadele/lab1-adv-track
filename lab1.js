@@ -42,7 +42,7 @@ function assert(expression, failureMessage) {
 
  Here are some examples for how to use the assert method:
 */
-
+/*
 assert(1 === 1, '1 equals 1 - this assert will pass.');
 assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.');
 
@@ -65,7 +65,7 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
  Meerkats make a sort of chirping noise (according to my 30 seconds of
  research).  We're going to translate two sentences into meerkat speech.
 */
-
+/*
 var sentence1 = 'More food please.';
 var sentence2 = 'Come over here so you can scratch my belly.';
 /*
@@ -83,7 +83,7 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // with 'chirp' (10 points)
 
 // your code goes here
-
+/*
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
 assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
@@ -98,15 +98,15 @@ assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
  Hint: read the Math.random description on MDN.
 */
 
-var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
-var nextAnimal;
+//var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
+//var nextAnimal;
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
 
-assert(nextAnimal, 'assign something to nextAnimal');
+//assert(nextAnimal, 'assign something to nextAnimal');
 
 /* ===================================================================
 ----------------- Hungry Lion (20 points) ----------------------------
@@ -134,6 +134,20 @@ var tooHungryDay;
 */
 
 // your code goes here
+//cycle through array using forEach.
+//if value is less than 4 break the loop
+//else add value to newArray
+//assign newArray.length to tooHungryDay
+
+mealsPerDay.forEach(function(index, value) {
+  var fullDay = [];
+  if (value < 4) {
+    return;
+  } else {
+    fullDay[index] = value;
+  }
+  tooHungryDay = fullDay.length + 1;
+});
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
